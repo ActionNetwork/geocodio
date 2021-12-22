@@ -2,6 +2,8 @@ require 'geocodio/congressional_district'
 require 'geocodio/school_district'
 require 'geocodio/state_legislative_district'
 require 'geocodio/timezone'
+require 'geocodio/riding'
+require 'geocodio/prov_riding'
 
 module Geocodio
   class Address
@@ -21,6 +23,8 @@ module Geocodio
     #
     # @return [Float] a number between 0 and 1
     attr_reader :accuracy
+
+    attr_reader :riding, :prov_riding
 
     def initialize(payload = {})
       set_attributes(payload['address_components']) if payload['address_components']
@@ -61,6 +65,8 @@ module Geocodio
       set_legislative_districts(fields['state_legislative_districts']) if fields['state_legislative_districts']
       set_school_districts(fields['school_districts'])                 if fields['school_districts']
       set_timezone(fields['timezone'])                                 if fields['timezone']
+      set_ridings(fields['riding'])                                    if fields['riding']
+      set_provridings(fields['provincial_riding'])                     if fields['provincial_riding']
     end
 
     def set_congressional_district(district)
@@ -98,5 +104,18 @@ module Geocodio
       return  0 if self.accuracy == address.accuracy
       return  1 if self.accuracy >  address.accuracy
     end
+
+    def set_ridings(riding)
+      return if riding.empty?
+
+      @riding = Riding.new(riding)
+    end
+
+    def set_provridings(prov_riding)
+      return if prov_riding.empty?
+
+      @prov_riding = ProvincialRiding.new(prov_riding)
+    end
+
   end
 end
