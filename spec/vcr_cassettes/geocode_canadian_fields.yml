@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.geocod.io/v1/geocode?api_key=secret_api_key&fields=riding,provriding&q=154%20Calaveras%20Ave,%20Nepean,%20ON%20K2J,%20Canada
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Cache-Control:
+      - no-cache, private
+      Date:
+      - Wed, 22 Dec 2021 19:24:11 GMT
+      X-Billable-Lookups-Count:
+      - '1'
+      X-Billable-Fields-Count:
+      - '2'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST
+      Access-Control-Allow-Headers:
+      - Content-Type, User-Agent
+      Access-Control-Expose-Headers:
+      - Request-Handler
+      Request-Handler:
+      - api83
+      Server:
+      - Unicorns with magic wands (https://www.geocod.io)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Robots-Tag:
+      - none
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"input":{"address_components":{"number":"154","street":"Calaveras","suffix":"Ave","formatted_street":"Calaveras
+        Ave","city":"Nepean","state":"ON","zip":"K2J","country":"CA"},"formatted_address":"154
+        Calaveras Ave, Nepean, ON K2J"},"results":[{"address_components":{"number":"154","street":"Calaveras","suffix":"Ave","formatted_street":"Calaveras
+        Ave","city":"Nepean","state":"ON","zip":"K2J","country":"CA"},"formatted_address":"154
+        Calaveras Ave, Nepean, ON K2J","location":{"lat":45.278646,"lng":-75.737035},"accuracy":1,"accuracy_type":"rooftop","source":"City
+        of Ottawa","fields":{"riding":{"code":"35064","ocd_id":"ocd-division\/country:ca\/ed:35064-2013","name_french":"Nepean","name_english":"Nepean","source":"Statistics
+        Canada"},"provincial_riding":{"ocd_id":"ocd-division\/country:ca\/province:on\/ed:66-2015","name_french":"Nepean","name_english":"Nepean","source":"Elections
+        Ontario"}}}],"_warnings":["There is a newer API version available, please
+        consider upgrading to v1.7. See changelog here: https:\/\/www.geocod.io\/docs\/#changelog"]}'
+  recorded_at: Wed, 22 Dec 2021 19:24:11 GMT
+recorded_with: VCR 6.0.0
