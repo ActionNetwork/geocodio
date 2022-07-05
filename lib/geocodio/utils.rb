@@ -9,12 +9,16 @@ module Geocodio
       results = response.body['results']
 
       results.map do |result_set|
+        if result_set.is_a?(Array)
+          key, result_set = result_set
+        end
+
         addresses = Array(result_set['response']['results'])
         addresses.map! { |result| Address.new(result) }
 
         query = result_set['query']
 
-        AddressSet.new(query, *addresses)
+        AddressSet.new(query, *addresses, key: key)
       end
     end
 
