@@ -11,9 +11,10 @@ module Geocodio
     # @return [String] the original query
     attr_reader :query
 
-    def initialize(query, *addresses)
+    def initialize(query, *addresses, key: nil)
       @query     = query
       @addresses = addresses
+      @key       = key
     end
 
     def each(&block)
