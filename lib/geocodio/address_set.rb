@@ -10,6 +10,7 @@ module Geocodio
     #
     # @return [String] the original query
     attr_reader :query
+    attr_accessor :key
 
     def initialize(query, *addresses, key: nil)
       @query     = query
