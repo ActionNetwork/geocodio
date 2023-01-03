@@ -9,6 +9,7 @@ module Geocodio
       @district_number = payload['district_number'] || 0
       @congress_number = payload['congress_number'].to_i
       @congress_years  = payload['congress_years']
+      @ocd_id  = payload['ocd_id']
     end
 
     def congress_years
